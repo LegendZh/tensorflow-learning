@@ -2,12 +2,13 @@
 前面的代码使用的是之前对于mnist的识别代码
 加入了keras.metrics方法进行统计
 """
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import datasets, layers, optimizers, Sequential, metrics
-import os
 
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 
 def preprocess(x, y):
