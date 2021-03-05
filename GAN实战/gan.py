@@ -3,7 +3,6 @@
 GAN网络比较复杂，具体解析见https://blog.csdn.net/ifreewolf_csdn/article/details/89309912
 """
 import os
-
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 import tensorflow as tf
