@@ -58,6 +58,7 @@ def celoss_zeros(logits):
 
 
 def gradient_penalty(discriminator, batch_x, fake_image):
+    # WGAN中用于梯度惩罚的函数，使得网络更稳定
     batchsz = batch_x.shape[0]
     t = tf.random.uniform([batchsz, 1, 1, 1])
     # [b, 1, 1, 1] => [b, h, w, c], 把 t 广播为 batch_x 的size, 来进行插值
