@@ -1,6 +1,8 @@
 """
 实战操作GAN网络，使用Anime数据集作为例子
-GAN网络比较复杂，具体解析见https://blog.csdn.net/ifreewolf_csdn/article/details/89309912
+GAN网络比较复杂，具体解析见 https://blog.csdn.net/ifreewolf_csdn/article/details/89309912
+WGAN的介绍见 https://www.cnblogs.com/Allen-rg/p/10305125.html
+DCGAN的介绍见 https://blog.csdn.net/qq_33594380/article/details/84135797
 """
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
