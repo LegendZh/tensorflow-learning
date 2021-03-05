@@ -88,6 +88,7 @@ def d_loss_fn(generator, discriminator, batch_z, batch_x, is_training):
     d_loss_fake = celoss_zeros(d_fake_logits)
     gp = gradient_penalty(discriminator, batch_x, fake_image)
 
+    # WGAN的特殊性，使用Wasserstein DIstance去表示梯度
     loss = d_loss_fake + d_loss_real + 1. * gp  # lamda = 1
     return loss, gp
 
