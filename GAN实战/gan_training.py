@@ -42,6 +42,7 @@ def save_result(val_out, val_block_size, image_path, color_mode):  # 把图片�
 
 def celoss_ones(logits):
     # 生成真图片的交叉熵，让真的尽可能是真的
+    # 假的图片调用它也可以获得真的图片的loss，使得它向真的方向靠近
     # logits : [b, 1]
     # labels : [b] = [1, 1, 1, 1, ...]
     loss = tf.nn.sigmoid_cross_entropy_with_logits(logits=logits, labels=tf.ones_like(logits))
@@ -94,10 +95,11 @@ def d_loss_fn(generator, discriminator, batch_z, batch_x, is_training):
 
 
 def g_loss_fn(generator, discriminator, batch_z, is_training):
+    # 生成假的图片，然后通过调整loss，尽可能的实现以假乱真
     fake_image = generator(batch_z, is_training)
     d_fake_logits = discriminator(fake_image, is_training)
-
-    loss = celoss_ones(d_fake_logits)  # 假尽可能真
+    # 假尽可能真（接近于1的loss）
+    loss = celoss_ones(d_fake_logits)
     return loss
 
 
