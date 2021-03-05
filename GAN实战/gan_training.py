@@ -154,7 +154,7 @@ def main():
             z = tf.random.uniform([100, z_dim])
             fake_image = generator(z, training=False)
             # 生成的图片保存，images文件夹下, 图片名为：wgan-epoch.png
-            img_path = os.path.join('images', 'gan-%d.png' % epoch)
+            img_path = os.path.join('images', 'wgan-%d.png' % epoch)
             # 10*10, 彩色图片
             save_result(fake_image.numpy(), 10, img_path, color_mode='P')
 
